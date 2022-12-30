@@ -1,0 +1,47 @@
+@use "sass:math";
+//Variables
+$color-secondary: #596bf0;
+$color-primary: #ff2b63;
+$input-text: darken($color-secondary, 10%);
+$input-text-placeholder: darken($color-primary, 60%);
+$button-text: darken($color-primary, 60%);
+$navbar-color: hsla(0, 0%, 100%, 0.294);
+
+//Functions
+@function calcRem($px) {
+  $base-font-size: 16;
+  @return math.div($px, $base-font-size) * 1rem;
+}
+
+// MIXINS
+@mixin breakpoint($point) {
+  @if $point == macbookpro16 {
+    @media screen and (min-width: 1728px) {
+      @content;
+    }
+  } @else if $point == macbookpro14 {
+    @media screen and (min-width: 1512px) {
+      @content;
+    }
+  } @else if $point == macbookair {
+    @media screen and (min-width: 1280px) {
+      @content;
+    }
+  } @else if $point == ipadpro {
+    @media screen and (min-width: 1024px) {
+      @content;
+    }
+  } @else if $point == ipadmini {
+    @media screen and (min-width: 767px) {
+      @content;
+    }
+  } @else if $point == iphone8plus {
+    @media screen and (min-width: 414px) {
+      @content;
+    }
+  } @else if $point == iphone8 {
+    @media screen and (min-width: 375px) {
+      @content;
+    }
+  }
+}
