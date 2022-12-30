@@ -1,11 +1,25 @@
 import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import { useState } from "react";
 import styles from "../styles/Home.module.scss";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
+  const [location, setLocation] = useState("");
+
+  const handleInput = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    setLocation(e.target.value);
+  };
+
+  const getWeather = (e) => {
+    e.preventDefault();
+    console.log(location);
+    fetch(`/api/weather?address=${location}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
+  const handleSubmit = (e) => {};
   return (
     <>
       <Head>
@@ -16,9 +30,17 @@ export default function Home() {
       </Head>
       <main>
         <h1>Weather App</h1>
-        <form action="">
-          <input type="text" placeholder="Location" />
-          <button type={"submit"}>Search</button>
+
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={location}
+            onChange={handleInput}
+            placeholder="Location"
+          />
+          <button type={"submit"} onClick={getWeather}>
+            Search
+          </button>
         </form>
       </main>
     </>
