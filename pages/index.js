@@ -63,7 +63,6 @@ export default function Home() {
     const lat = geoData.features[0].center[1];
     const long = geoData.features[0].center[0];
     console.log(lat, long);
-    const location = geoData.features[0].place_name;
     const weatherURL = `http://api.weatherstack.com/current?access_key=935ca24dc75a8b62f3b3deb577f1c404&query=${lat},${long}&units=f`;
     const weatherData = await fetch(weatherURL, { scheme: "http" })
       .then((res) => res.json())
@@ -91,6 +90,28 @@ export default function Home() {
       return;
     }
     weather();
+  };
+
+  const Results = () => {
+    return (
+      <article className={styles.results}>
+        <h2>
+          {weatherData.location}, {weatherData.region}, {weatherData.country}
+        </h2>
+        <h3>Weather Description</h3>
+        <p>{weatherData.description}</p>
+        <h3>Temperature</h3>
+        <p>{weatherData.temp}</p>
+        <h3>Feels Like</h3>
+        <p>{weatherData.feelTemp}</p>
+        <h3>Humidity</h3>
+        <p>{weatherData.humidity}</p>
+        <h3>Wind Speed</h3>
+        <p>{weatherData.windSpeed}</p>
+        <h3>Wind Direction</h3>
+        <p>{weatherData.windDirection}</p>
+      </article>
+    );
   };
 
   return (
@@ -121,25 +142,8 @@ export default function Home() {
           <button type={"submit"} className={styles.button}>
             Search
           </button>
-          <article className={styles.results}>
-            <h2>
-              {weatherData.location}, {weatherData.region},{" "}
-              {weatherData.country}
-            </h2>
-            <h3>Weather Description</h3>
-            <p>{weatherData.description}</p>
-            <h3>Temperature</h3>
-            <p>{weatherData.temp}</p>
-            <h3>Feels Like</h3>
-            <p>{weatherData.feelTemp}</p>
-            <h3>Humidity</h3>
-            <p>{weatherData.humidity}</p>
-            <h3>Wind Speed</h3>
-            <p>{weatherData.windSpeed}</p>
-            <h3>Wind Direction</h3>
-            <p>{weatherData.windDirection}</p>
-          </article>
         </form>
+        {!Object.keys(weatherData).length == 0 ? <Results /> : null}
       </main>
     </>
   );
