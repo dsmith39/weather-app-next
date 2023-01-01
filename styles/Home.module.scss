@@ -1,1 +1,49 @@
 @use "./variables" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 5vh 10vw 0 10vw;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.input {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid $color-primary;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.button {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid $color-primary;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: $color-primary;
+  color: $button-text;
+  cursor: pointer;
+}
+.results {
+  h2 {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-weight: bold;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+}
