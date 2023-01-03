@@ -1,34 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Weather Api Application
+[See A Demo](http://ec2-18-206-253-28.compute-1.amazonaws.com/)
+## Objective
+To use a weather information API to create a browser application
+## Tech Stack
+- Node.js
+- Next.js
+- Mapbox API
+- Weatherstack API
+## Description
+This is an application that provides the user with weather information. The user can input a city, zip code, or even longitude and latitude, and will be shown weather information for that location. I originally built the backend with Express.js and Node.js. I rebuilt the site to be served with Next.js. I used the Mapbox API to translate the location information that the user inputs into the longitude and latitude that the WeatherStack API needs to function properly. I originally used an html templating system called Handlebars in order to provide the user with a GUI view in the browser. Now, after rebuilding the page, Next.js handles all views and routing. I decided to change to Next.js because I started using it for my portfolio site, and I really like the way it works.
+## Future Considerations
+In the future, I would like to allow a user to save their location information as a default, and other location if they want to save those. I would also like to improve the styling of the application, as it kinda plain, in my opinion. It would be pretty cool to be able to pay for a subscription to the WeatherStack API, and then be able to provide the user with more detailed weather information and serve over HTTPS for better deployment options.
